@@ -1,0 +1,70 @@
+1. pygame.transform.flip(Surface, xbool, ybool)  (水平和垂直翻转)
+     xbool => True 为水平翻转
+     ybool => True 为垂直翻转
+     return Surface
+
+2.  pygame.transform.scale(Surface, (width, height), DestSurface = None)(缩放)
+   (width, height): 缩放的大小
+    returnSurface
+
+3. pygame.transform.rotate(Surface, angle) (旋转)
+     angle : 旋转角度
+     returnSurface
+
+模块:  pygame.transform
+
+功能: 对图像进行缩放和移动
+4.pygame.transform.rotozoom(urface, angle, scale)(经过滤波的缩放和旋转)
+5.pygame.transform.scale2x(Surface, DestSurface = None) (特殊的图像2倍放大)
+6.pygame.transform.smoothscale(Surface, (width, height), DestSurface = None) (平滑缩放任意大小)
+7.pygame.transform.chop(Surface, rect) (图像剪切)
+8.pygame.transform.laplacian(Surface, DestSurface = None)
+ (描边)
+
+9.pygame.transform.average_surfaces(Surfaces,
+ DestSurface = None, palette_colors = 1)
+10.pygame.transform.average_color(Surface, Rect = None)
+
+11.pygame.transform.threshold(DestSurface, Surface, color, threshold = (0,0,0,0), diff_color = (0,0,0,0),
+ change_return = 1, Surface = None, inverse
+ = False)
+
+碰撞：
+1.两个精灵之间的矩形检测
+pygame.sprite.collide_rect(first, second) #返回布尔值
+
+2.精灵与组之间的矩形检测
+#第一个参数是精灵，
+#第二个参数是精灵组，
+#第三个参数为True，则碰撞检测后，组中所有碰撞的精灵被删除
+#返回 组中被碰撞的精灵
+collide_list = pygame.sprite.spritecollide(sprite,group,False)
+
+3.两个组之间的矩形检测
+#前两个参数都是组
+#后两个参数，代表发生碰撞时，是否删除精灵
+#该函数返回一个字典
+#第一个组中的每一个精灵都会添加到字典中
+#第二组中与之碰撞的精灵会添加到字典相应的条目中
+hit_list = pygame.sprite.groupcollide(group1,group2,True,False)
+--------------------- 
+
+# 方法1
+ 7     print '遍历列表方法1：'
+ 8     for i in list:
+ 9         print ("序号：%s   值：%s" % (list.index(i) + 1, i))
+10 
+11     print '\n遍历列表方法2：'
+12     # 方法2
+13     for i in range(len(list)):
+14         print ("序号：%s   值：%s" % (i + 1, list[i]))
+15 
+16     # 方法3
+17     print '\n遍历列表方法3：'
+18     for i, val in enumerate(list):
+19         print ("序号：%s   值：%s" % (i + 1, val))
+20 
+21     # 方法3
+22     print '\n遍历列表方法3 （设置遍历开始初始位置，只改变了起始序号）：'
+23     for i, val in enumerate(list, 2):
+24         print ("序号：%s   值：%s" % (i + 1, val))
